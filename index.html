@@ -6,12 +6,13 @@
   <title>Fancy App</title>
   <meta name="description" content="">
 
-  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
 
   <!-- Source library scripts here (sometimes). -->
-  <script type="text/javascript" src="/js/underscore.js"></script>
-  <script type="text/javascript" src="/js/jquery-2.1.4.js"></script>
+  <script type="text/javascript" src="./js/underscore.js"></script>
+  <script type="text/javascript" src="./js/jquery-2.1.4.js"></script>
+  <script src="./js/data.js"></script>
 </head>
 <body>
 
@@ -40,14 +41,24 @@
       buy it all in one place.
     </p>
   </main>
-</div>
+  <div id="anchor"></div>
+  </div>
 
 <!-- Define HTML templates here. -->
 <script type="text/template" id="template">
+<% _.each(content, (data) => { %>
+<div class="products">
+  <img src=<%= `./${data.image}` %> id="picture">
+  <p><%= data.name %></p>
+  <p><%= data.cost %> . <%= data.user %> + <%= data.likes %></p>
+  <p><img src="./images/icon-logo-gray.png"> Fancy | <img src="./images/icon-cart.png">Buy</p>
+  </div>
+  <% }) %>
 </script>
 
 <!-- Source local scripts here. -->
-<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+
 
 </body>
 </html>
